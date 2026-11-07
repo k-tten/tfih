@@ -15,7 +15,7 @@ import kotlin.math.atan2
 import kotlin.math.sqrt
 
 object GoldenFish : Feature {
-    private const val SEARCH_RADIUS = 8.0
+    private const val SEARCH_RADIUS = 12.0
     private const val LAVA_RADIUS = 2
     private const val AIM_DURATION_NANOS = 400_000_000L
     private const val ROTATION_RESTORE_DURATION_NANOS = 400_000_000L
@@ -75,8 +75,10 @@ object GoldenFish : Feature {
             text.contains("You spot a Golden Fish surface from beneath the lava!") -> startSearch(mc)
             state == State.IDLE -> Unit
             text.contains("The Golden Fish is resisting...") -> {
-                state = State.RESISTING
-                deadlineNanos = System.nanoTime()
+                if (state != State.RESISTING) {
+                    state = State.RESISTING
+                    deadlineNanos = System.nanoTime()
+                }
             }
             text.contains("The Golden Fish escapes your hook but looks weakened.") -> {
                 state = State.CHECKPOINT
