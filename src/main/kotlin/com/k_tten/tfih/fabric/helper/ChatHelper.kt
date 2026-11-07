@@ -56,7 +56,7 @@ object ChatHelper {
                 block()
             }.onFailure {
                 it.printStackTrace()
-                sendToChat("§cThere was an error when running a coroutine in tfih! Check logs and report to https://github.com/SteinGaming/tfih if persists/stuff breaks.")
+                sendToChat("§cThere was an error when running a coroutine in tfih! Check logs and report to https://github.com/k-tten/tfih if persists/stuff breaks.")
             }
         }
 

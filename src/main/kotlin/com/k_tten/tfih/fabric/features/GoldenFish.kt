@@ -21,7 +21,7 @@ object GoldenFish : Feature {
     private const val ROTATION_RESTORE_DURATION_NANOS = 400_000_000L
     private const val CAST_WAIT_NANOS = 300_000_000L
     private const val RESIST_TIMEOUT_NANOS = 700_000_000L
-    private const val CLICK_INTERVAL_NANOS = 150_000_000L
+    private const val CLICK_INTERVAL_NANOS = 500_000_000L
     private const val TROPHY_TIMEOUT_NANOS = 1_200_000_000L
     private const val TARGET_SEARCH_TIMEOUT_NANOS = 2_000_000_000L
 

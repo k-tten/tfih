@@ -185,7 +185,7 @@ object Fishing : Feature {
     private fun hasNearbyWaterOrLava(client: Minecraft, center: BlockPos): Boolean {
         val level = client.level ?: return false
         for (x in -NEARBY_FLUID_RADIUS..NEARBY_FLUID_RADIUS) {
-            for (y in -1..1) {
+            for (y in -10..1) {
                 for (z in -NEARBY_FLUID_RADIUS..NEARBY_FLUID_RADIUS) {
                     val fluid = level.getBlockState(center.offset(x, y, z)).fluidState.type
                     if (fluid == Fluids.WATER || fluid == Fluids.FLOWING_WATER ||
