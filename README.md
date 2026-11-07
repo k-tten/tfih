@@ -20,7 +20,7 @@ Use `/tfih` or `/tfih view` in chat to view the current fishing settings. Change
 - `/tfih testumb` to run the Umberella action once immediately
 
 Delay values can be from 0 to 1000 milliseconds. Changes are saved to the mod configuration file automatically.
-The bobber check interval accepts 5 to 3600 seconds and varies randomly by up to 5 seconds around the configured average.
+The bobber check interval accepts 5 to 3600 seconds and varies randomly by up to 2 seconds around the configured average.
 When jump mode is enabled, the player jumps just before reeling in, with a short randomized pause before the reel.
 When Umberella is enabled, the first jump is delayed by a random 4:45-4:55 interval. The feature requires a fishing rod in the selected hotbar slot and searches the hotbar for the Umberella item.
 

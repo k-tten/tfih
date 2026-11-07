@@ -25,7 +25,7 @@ import kotlin.time.Duration.Companion.milliseconds
 object Fishing : Feature {
 
     private val COROUTINE_SCOPE = CoroutineScope(Dispatchers.Default)
-    private const val BOBBER_CHECK_VARIATION_MILLIS = 5_000L
+    private const val BOBBER_CHECK_VARIATION_MILLIS = 2_000L
     private const val NEARBY_FLUID_RADIUS = 4
     private var wasEnabledForBobberCheck = false
     private var nextBobberCheckAtNanos = 0L
@@ -45,8 +45,9 @@ object Fishing : Feature {
         fishJob = null
     }
 
-    fun resumeAfterGoldenFish() {
+    fun resumeAfterGoldenFish(recastAfterCatch: Boolean = false) {
         pausedForGoldenFish = false
+        if (recastAfterCatch) ensureBobberOut()
     }
 
     @JvmStatic

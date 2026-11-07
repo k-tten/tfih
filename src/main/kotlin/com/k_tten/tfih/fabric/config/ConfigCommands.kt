@@ -136,7 +136,7 @@ object ConfigCommands {
                                         DoubleArgumentType.getDouble(it, "seconds")
                                     saveAndReport(
                                         configManager,
-                                        "Bobber check interval: ${configManager.config.fishing.bobberCheckAverageSeconds} seconds average (±5 seconds)"
+                                        "Bobber check interval: ${configManager.config.fishing.bobberCheckAverageSeconds} seconds average (±2 seconds)"
                                     )
                                 }
                             )
@@ -200,7 +200,7 @@ object ConfigCommands {
         ChatHelper.sendToChat("Enabled: ${fishing.enabled}")
         ChatHelper.sendToChat("Jump mode: ${fishing.jumpMode}")
         ChatHelper.sendToChat("Slugfish delay: ${fishing.slugfishSeconds} seconds (0 = disabled)")
-        ChatHelper.sendToChat("Bobber check interval: ${fishing.bobberCheckAverageSeconds} seconds average (±5 seconds)")
+        ChatHelper.sendToChat("Bobber check interval: ${fishing.bobberCheckAverageSeconds} seconds average (±2 seconds)")
         ChatHelper.sendToChat("Timing distribution: ${fishing.timings.distribution}")
         ChatHelper.sendToChat("Water catch delay: ${fishing.timings.waterAverage} ms")
         ChatHelper.sendToChat("Lava catch delay: ${fishing.timings.lavaAverage} ms")

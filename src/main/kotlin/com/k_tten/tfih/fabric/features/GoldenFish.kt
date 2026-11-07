@@ -291,15 +291,6 @@ object GoldenFish : Feature {
         return from + difference * amount
     }
 
-    private fun ensureBobberOut(mc: Minecraft) {
-        val player = mc.player ?: return
-        if (player.fishing == null && player.mainHandItem.item == Items.FISHING_ROD) {
-            mc.startUseItem()
-        } else if (player.mainHandItem.item != Items.FISHING_ROD) {
-            ChatHelper.sendToChat("Golden Fish caught, but no fishing rod is held to cast the bobber.")
-        }
-    }
-
     private fun startRotationRestore(mc: Minecraft) {
         val player = mc.player
         if (player == null) {
@@ -327,12 +318,10 @@ object GoldenFish : Feature {
         if (rotationChanged) {
             Minecraft.getInstance().player?.let { setPlayerRotation(it, originalYaw, originalPitch) }
         }
-        if (caughtGoldenFish) {
-            ensureBobberOut(Minecraft.getInstance())
-            caughtGoldenFish = false
-        }
+        val recastAfterCatch = caughtGoldenFish
+        caughtGoldenFish = false
         if (fishingPaused) {
-            Fishing.resumeAfterGoldenFish()
+            Fishing.resumeAfterGoldenFish(recastAfterCatch)
             fishingPaused = false
         }
         state = State.IDLE
